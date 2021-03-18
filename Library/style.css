@@ -1,0 +1,75 @@
+html 
+{
+background: rgb(6, 68, 104);
+color: rgb(60, 60, 61);
+}
+
+
+h1
+{
+font-size: 40px;
+border-bottom: rgb(1, 1, 65);
+color: rgb(244, 245, 247);
+background-color: rgb(4, 4, 117);
+border-radius:  10px 10px 10px 0px;
+}
+
+button
+{
+color: rgb(1, 1, 44);
+border: rgb(25, 3, 104);
+border: solid;
+background-color: darkturquoise;
+font-size: 20px;
+text-align: center;
+
+}
+
+button:hover
+{
+color: darkturquoise;
+border: darkturquoise;
+border: solid;
+background-color: rgb(25, 3, 104);
+font-size: 20px;
+text-align: center;
+}
+
+.booksTable
+{
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 1.5em;
+    min-width: 400px;
+}
+
+.booksTable thead tr
+{
+background-color: rgb(4, 4, 117);
+color: white;
+text-align: left;
+font-weight: bold;
+}
+
+.booksTable td,
+.booksTable th
+{
+padding: 12px 15px;
+}
+
+.booksTable tbody tr
+{
+border-bottom: 1px solid rgb(150, 148, 148);
+background-color: rgb(207, 206, 206);
+}
+
+.booksTable tbody tr:last-of-type
+{
+border-bottom: 2px solid darkblue;
+}
+
+.booksTable tbody tr:hover
+{
+    font-weight: bold;
+    color: #16055f;
+}
