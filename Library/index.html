@@ -7,6 +7,7 @@
     <h1 id="title"> The Fairytale Library</h1>
 <main>
     <button id="addNew" onclick="newBook()">ADD BOOK</button>
+    <button id="popup" onclick="openForm()">Form Test</button>
     <button id="addNew" onclick="clearDisplay()">DELETE BOOK</button>
     <table id="" class="booksTable">
         <thead>
@@ -15,14 +16,38 @@
                 <th>Author</th>
                 <th>Pagecount</th>
                 <th>Read</th>
-                <th>D</th>            
+                <th></th>            
             </tr>
         </thead>
         <tbody id="books">
 
         </tbody>
     </table>
-<main>
+</main>
+
+
+    <div id="bookentry" class="bookentry-popup">
+        <form action="" class="formContainer">
+            <label for="author">Author Name:</label><br>
+            <input type="text" id="author" name="author" placeholder="Billy Bojangles"><br>
+
+            <label for="title">Title:</label><br>
+            <input type="text" id="title" name="title" placeholder="The Bojangles Chronicles"><br>
+
+            <label for="pagecount">Page count:</label><br>
+            <input type="text" id="pagecount" name="pagecount" placeholder="400"><br>
+
+            <p>Have you read it?:</p>
+            <input type="radio" id="yep" name="read" value="yep">
+                <label for="yep" style="color: green">Yep</label>
+            <input type="radio" id="nope" name="read" value="nope">
+                <label for="nope" style="color: red">Nope</label><br><br>
+
+            <button type="submit" class="form-button" onclick="newBook()">Submit</button>
+            <button type="button" class="form-button" onclick="closeForm()">Nevermind</button>
+        </form>
+    </div>
+
 </body>
 
 <script src="books.js"></script>

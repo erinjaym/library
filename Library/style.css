@@ -73,3 +73,52 @@ border-bottom: 2px solid darkblue;
     font-weight: bold;
     color: #16055f;
 }
+
+.bookentry-popup
+{
+display: none;
+position: fixed;
+top: 40%;
+left: 50%;
+transform: translate(-30%, -50%);
+z-index: 2;
+}
+
+.formContainer
+{
+color: rgb(4, 4, 117);;
+font-weight: bold;
+background-color: rgb(245, 245, 245);
+border: rgb(0, 111, 139);
+border: solid;
+border-radius: 10px;
+border-width: 10px;
+padding: 10px;
+}
+
+.form-button
+{
+    color: rgb(1, 1, 44);
+    border: rgb(25, 3, 104);
+    border: solid;
+    background-color: rgb(248, 248, 248);
+    font-size: 20px;
+    text-align: center;
+}
+
+.form-button:hover
+{
+    color: rgb(245, 245, 247);
+    border: rgb(25, 3, 104);
+    border: solid;
+    background-color: rgb(1, 1, 44);
+    font-size: 20px;
+    text-align: center;
+}
+
+.formContainer input[type=text]
+ {
+    padding: 15px;
+    border: none;
+    background: #EEEEEE;
+  }

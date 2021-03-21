@@ -17,13 +17,13 @@ function Book(author, title, pageCount, beenRead)
 }
 
 addBookToLibrary(theDaruma);
+addBookToLibrary(theBigSleep);
 
 function addBookToLibrary(book) 
 {
     let bookPlacement = myLibrary.length;
     myLibrary[bookPlacement] = book;
 }
-
 
 displayLibrary();
 function displayLibrary()
@@ -56,13 +56,23 @@ function newBook()
     let title = prompt("Title", "Foreman Grill");
     let pages = prompt("Pages?", "15");
     let beenRead = prompt("Have you read it?", "Yep");
-
     const newBook = new Book(auth, title, pages, beenRead)
     addBookToLibrary (newBook); 
-    displayLibrary();
-
+    closeForm();
+    // display book 
 
 }
+
+
+
+function openForm() {
+    document.getElementById("bookentry").style.display = "block";
+  }
+  
+  function closeForm() {
+    document.getElementById("bookentry").style.display = "none";
+  }
+
 
 
 /*
