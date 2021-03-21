@@ -6,10 +6,11 @@
 <body>
     <h1 id="title"> The Fairytale Library</h1>
 <main>
-    <button id="addNew" onclick="newBook()">ADD BOOK</button>
-    <button id="popup" onclick="openForm()">Form Test</button>
-    <button id="addNew" onclick="clearDisplay()">DELETE BOOK</button>
-    <table id="" class="booksTable">
+    <button id="addNew" onclick="openForm();">ADD BOOK</button>
+    <button id="delete" onclick="deleteBook()">DELETE BOOK</button>
+    <button id="display" onclick="displayLibrary()">DISPLAY LIBRARY</button>
+    <button id="clear" onclick="clearDisplay()">CLEAR</button>
+    <table id="theTable" class="booksTable">
         <thead>
             <tr>
                 <th>Title</th>
@@ -31,8 +32,8 @@
             <label for="author">Author Name:</label><br>
             <input type="text" id="author" name="author" placeholder="Billy Bojangles"><br>
 
-            <label for="title">Title:</label><br>
-            <input type="text" id="title" name="title" placeholder="The Bojangles Chronicles"><br>
+            <label for="booktitle">Title:</label><br>
+            <input type="text" id="booktitle" name="title" placeholder="The Bojangles Chronicles"><br>
 
             <label for="pagecount">Page count:</label><br>
             <input type="text" id="pagecount" name="pagecount" placeholder="400"><br>
@@ -43,7 +44,7 @@
             <input type="radio" id="nope" name="read" value="nope">
                 <label for="nope" style="color: red">Nope</label><br><br>
 
-            <button type="submit" class="form-button" onclick="newBook()">Submit</button>
+            <button type="button" class="form-button" onclick="newBook();closeForm();">Submit</button>
             <button type="button" class="form-button" onclick="closeForm()">Nevermind</button>
         </form>
     </div>

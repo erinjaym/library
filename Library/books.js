@@ -2,6 +2,7 @@
 let myLibrary = [] ;
 let theDaruma = new Book("Sun Zu", "Darumas in War Time", 500, false );
 let theBigSleep = new Book("Willy Wonka", "The Big Sleep", 200, false );
+let id = ;
 
 function Book(author, title, pageCount, beenRead)
 {
@@ -15,7 +16,7 @@ function Book(author, title, pageCount, beenRead)
     }
     console.log(this.info());
 }
-
+console.log(theDaruma);
 addBookToLibrary(theDaruma);
 addBookToLibrary(theBigSleep);
 
@@ -23,17 +24,21 @@ function addBookToLibrary(book)
 {
     let bookPlacement = myLibrary.length;
     myLibrary[bookPlacement] = book;
+
 }
+
 
 displayLibrary();
 function displayLibrary()
 {
+
+    console.log()
     for (let bookLocation = 0; bookLocation <= myLibrary.length-1; bookLocation++) // for each book in library
     {
         let bookInfoArray = myLibrary[bookLocation].info().split(',');
         console.log(bookInfoArray.length);
         let newRow = document.getElementById("books").insertRow();
-        newRow.setAttribute("id", [bookLocation]); 
+        newRow.setAttribute("id", [bookLocation]);  // sets dom ID
 
             for (bookInfo = 0; bookInfo <= bookInfoArray.length-1; bookInfo ++ )// for each element in each book
             { 
@@ -47,58 +52,53 @@ function displayLibrary()
 
 }
 
-function newBook()
+function newBook ()
 {
-//Clear display crashes when there are no children to remove. 
-//Glitch happens if there are books in the library that arent on screen
-//may need to resolve but may not matter 
-    let auth = prompt("Whos the Author?", "George foreman");
-    let title = prompt("Title", "Foreman Grill");
-    let pages = prompt("Pages?", "15");
-    let beenRead = prompt("Have you read it?", "Yep");
-    const newBook = new Book(auth, title, pages, beenRead)
-    addBookToLibrary (newBook); 
-    closeForm();
-    // display book 
-
+  let auth = document.querySelector("div.bookentry-popup input[name='author']").value;
+  let title = document.querySelector("div.bookentry-popup #booktitle").value;
+  let pages = document.querySelector("div.bookentry-popup #pagecount").value;
+  let beenRead = document.querySelector("div.bookentry-popup #yep").checked; 
+  const newBook = new Book(auth, title, pages, beenRead) 
+  console.log(newBook);
+  addBookToLibrary(newBook);
+  clearDisplay();
+  displayLibrary();
 }
 
-
-
-function openForm() {
+function openForm() 
+    {
     document.getElementById("bookentry").style.display = "block";
-  }
+    }
   
-  function closeForm() {
+  function closeForm() 
+    {
     document.getElementById("bookentry").style.display = "none";
-  }
+    }
 
 
 
-/*
-//Clear display crashes when there are no children to remove. 
+
 function clearDisplay ()
 {
-    if (myLibrary.length == 0) // base case for if there are no books clear doesnt cause a crash
-    {
+        while (document.getElementById("books").lastChild)
+            {
+                document.getElementById("books").lastChild.remove();  
+            }
 
-    }
-    else 
-    {
-        for (let booksOnScreen = 0; booksOnScreen <= myLibrary.length-1; booksOnScreen++)
-        console.log(booksOnScreen);
-        {
-        //document.getElementById("books").lastChild.remove();  
-        }   
-    }
+                console.log("You are done");
+
 }
-*/
 
-/* function delete (id) 
+
+function deleteBook (id) 
 {
-myLibrary.splice(id);
-document.getElementById(id).remove();
-clearDisplay();
-displayLibrary();
+    document.getElementById(id).remove(); //remove from page display and dom
+    console.log(myLibrary);
+    myLibrary.splice(id, 1);        // remove from library
+    console.log(myLibrary);
+    clearDisplay();             // clear screen 
+    displayLibrary();           // reassigns correct DOM ID and ensures page is shown correctly
 
-} */
+} 
+
+
