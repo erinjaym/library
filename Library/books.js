@@ -2,10 +2,7 @@
 let myLibrary = [] ;
 let sample = new Book ("EJM", "A Hero's Rise", 486, false);
 let selectionId = null;
-
-
 addBookToLibrary(sample);
-
 
 function Book(auth, name, pages, read)
 {
@@ -17,7 +14,7 @@ function Book(auth, name, pages, read)
     {
         return this.title + "," + this.author + "," + this.pageCount + "," + this.beenRead;
     }
-    console.log("Book that was added:" + this.info());
+    console.log("Book that was added to library: " + this.info());
 
 /* old function replaced with prototype funtion for learning experience
     this.toggleRead =  function()
@@ -35,8 +32,6 @@ function Book(auth, name, pages, read)
             console.log("brain implosion");
         }
     } */
-
-
 
 }
 
