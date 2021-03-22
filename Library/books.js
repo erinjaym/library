@@ -1,8 +1,10 @@
 
 let myLibrary = [] ;
-let theDaruma = new Book("Sun Zu", "Darumas in War Time", 500, false );
-let theBigSleep = new Book("Willy Wonka", "The Big Sleep", 200, false );
-let id = ;
+let sharpie = new Book ("Samuel", "funkey munkey", 100, false);
+let selectionId = null;
+
+addBookToLibrary(sharpie);
+
 
 function Book(author, title, pageCount, beenRead)
 {
@@ -15,10 +17,21 @@ function Book(author, title, pageCount, beenRead)
         return title + "," + author + "," + pageCount + "," + beenRead;
     }
     console.log(this.info());
+
+    this.markRead =  function()
+    {
+        if(beenRead == false)
+        {
+            beenRead = true;
+        }
+        else
+        {
+            beenRead = false;
+        }
+      
+    }
+
 }
-console.log(theDaruma);
-addBookToLibrary(theDaruma);
-addBookToLibrary(theBigSleep);
 
 function addBookToLibrary(book) 
 {
@@ -31,25 +44,32 @@ function addBookToLibrary(book)
 displayLibrary();
 function displayLibrary()
 {
-
-    console.log()
+//have to make delete book or Read it options in dom in each column 
     for (let bookLocation = 0; bookLocation <= myLibrary.length-1; bookLocation++) // for each book in library
     {
         let bookInfoArray = myLibrary[bookLocation].info().split(',');
-        console.log(bookInfoArray.length);
         let newRow = document.getElementById("books").insertRow();
         newRow.setAttribute("id", [bookLocation]);  // sets dom ID
 
             for (bookInfo = 0; bookInfo <= bookInfoArray.length-1; bookInfo ++ )// for each element in each book
             { 
-            
                 newRow.insertCell().textContent = bookInfoArray[bookInfo];
-    
+
             }
+            // add book options buttons to table
+           let readIt = document.createElement('button');
+           readIt.textContent = "Read It";
+           readIt.setAttribute("onclick", `changeReadStatus( ${newRow.id})`); 
+           newRow.insertCell().appendChild(readIt);
 
-                
+           let remove = document.createElement('button'); 
+           remove.className = "danger-button";
+           remove.textContent = "Delete this book";
+           console.log(newRow.id);
+           remove.setAttribute("onclick", `deleteBook( ${newRow.id})`); 
+           newRow.insertCell().appendChild(remove);
+
     }
-
 }
 
 function newBook ()
@@ -59,7 +79,6 @@ function newBook ()
   let pages = document.querySelector("div.bookentry-popup #pagecount").value;
   let beenRead = document.querySelector("div.bookentry-popup #yep").checked; 
   const newBook = new Book(auth, title, pages, beenRead) 
-  console.log(newBook);
   addBookToLibrary(newBook);
   clearDisplay();
   displayLibrary();
@@ -85,20 +104,69 @@ function clearDisplay ()
                 document.getElementById("books").lastChild.remove();  
             }
 
-                console.log("You are done");
+}
+
+
+function deleteBook (bookId) 
+{
+    document.getElementById(bookId).remove(); //remove from page display and dom
+    myLibrary.splice(bookId, 1);        // remove from library
+    clearDisplay();             // clear screen 
+    displayLibrary();           // reassigns correct DOM ID and ensures page is shown correctly
+     
+} 
+
+
+function deleteSelection ()
+{
+
+    if(selectionId === null) // no books selected
+    {
+      alert("Please select a book to delete first!");
+    }
+    else
+    {
+    document.getElementById(selectionId).remove(); //remove from page display and dom
+    myLibrary.splice(selectionId, 1);        // remove from library
+    clearDisplay();                 // clear screen 
+    displayLibrary();           // reassigns correct DOM ID and ensures page is shown correctly
+    selectionId = null;              // reset selector ID 
+    }
 
 }
 
 
-function deleteBook (id) 
+
+function changeReadStatus (bookId)
 {
-    document.getElementById(id).remove(); //remove from page display and dom
-    console.log(myLibrary);
-    myLibrary.splice(id, 1);        // remove from library
-    console.log(myLibrary);
-    clearDisplay();             // clear screen 
-    displayLibrary();           // reassigns correct DOM ID and ensures page is shown correctly
+myLibrary[bookId].markRead();
+clearDisplay();
+displayLibrary();
+}
 
-} 
+function changeSelectionStatus ()
+{
+myLibrary[selectionId].markRead();
+clearDisplay();
+displayLibrary();
+}
 
 
+document.getElementById("books").addEventListener('click', function (e)
+{
+
+    if (selectionId == null)
+    {
+        selectionId = (e.target.parentElement.id);
+        e.target.parentElement.className = "bookSelection";
+
+    }
+    else 
+    {
+        let prevSelection = selectionId;
+        selectionId = (e.target.parentElement.id);
+        e.target.parentElement.className = "bookSelection";
+        document.getElementById(prevSelection).className = ""; // conflict between selections and button on books. 
+    }
+
+});

@@ -43,6 +43,29 @@ text-align: center;
     min-width: 400px;
 }
 
+
+.danger-button
+{
+color: rgb(1, 1, 44);
+border: rgb(25, 3, 104);
+border: solid;
+background-color: rgb(216, 5, 16);
+font-size: 20px;
+text-align: center;
+
+}
+
+.danger-button:hover
+{
+color: rgb(232, 232, 236);
+border: rgb(104, 3, 3);
+border: solid;
+background-color: rgb(216, 5, 16);
+font-size: 20px;
+text-align: center;
+
+}
+
 .booksTable thead tr
 {
 background-color: rgb(4, 4, 117);
@@ -69,6 +92,12 @@ border-bottom: 2px solid darkblue;
 }
 
 .booksTable tbody tr:hover
+{
+    font-weight: bold;
+    color: #16055f;
+}
+
+.bookSelection
 {
     font-weight: bold;
     color: #16055f;
