@@ -19,7 +19,7 @@ button
 color: rgb(1, 1, 44);
 border: rgb(25, 3, 104);
 border: solid;
-background-color: darkturquoise;
+background-color: rgb(151, 158, 158);
 font-size: 20px;
 text-align: center;
 
@@ -27,12 +27,35 @@ text-align: center;
 
 button:hover
 {
-color: darkturquoise;
-border: darkturquoise;
+color: rgb(151, 158, 158);
+border: rgb(151, 158, 158);
 border: solid;
 background-color: rgb(25, 3, 104);
 font-size: 20px;
 text-align: center;
+}
+
+
+
+.table-button
+{
+    color: rgb(1, 1, 44);
+    border: rgb(25, 3, 104);
+    border: solid;
+    background-color: rgb(151, 158, 158);
+    font-size: 18px;
+    text-align: center;
+
+}
+
+.table-button:hover
+{
+    color: rgb(151, 158, 158);
+    border: rgb(151, 158, 158);
+    border: solid;
+    background-color: rgb(25, 3, 104);
+    font-size: 18px;
+    text-align: center;
 }
 
 .booksTable

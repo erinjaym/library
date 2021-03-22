@@ -1,35 +1,42 @@
 
 let myLibrary = [] ;
-let sharpie = new Book ("Samuel", "funkey munkey", 100, false);
+let sample = new Book ("EJM", "A Hero's Rise", 486, false);
 let selectionId = null;
 
-addBookToLibrary(sharpie);
+
+addBookToLibrary(sample);
 
 
-function Book(author, title, pageCount, beenRead)
+function Book(auth, name, pages, read)
 {
-    this.title = title;
-    this.author = author;
-    this.pageCount = pageCount;
-    this.beenRead = beenRead;
+    this.title = name;
+    this.author = auth;
+    this.pageCount = pages;
+    this.beenRead = read;
     this.info = function ()
     {
-        return title + "," + author + "," + pageCount + "," + beenRead;
+        return this.title + "," + this.author + "," + this.pageCount + "," + this.beenRead;
     }
-    console.log(this.info());
+    console.log("Book that was added:" + this.info());
 
-    this.markRead =  function()
+/* old function replaced with prototype funtion for learning experience
+    this.toggleRead =  function()
     {
-        if(beenRead == false)
+        if(this.beenRead == false)
         {
-            beenRead = true;
+           this.beenRead = true;
+        }
+        else if(this.beenRead == true)
+        {
+            this.beenRead = false;
         }
         else
         {
-            beenRead = false;
+            console.log("brain implosion");
         }
-      
-    }
+    } */
+
+
 
 }
 
@@ -44,7 +51,7 @@ function addBookToLibrary(book)
 displayLibrary();
 function displayLibrary()
 {
-//have to make delete book or Read it options in dom in each column 
+
     for (let bookLocation = 0; bookLocation <= myLibrary.length-1; bookLocation++) // for each book in library
     {
         let bookInfoArray = myLibrary[bookLocation].info().split(',');
@@ -58,14 +65,15 @@ function displayLibrary()
             }
             // add book options buttons to table
            let readIt = document.createElement('button');
+           readIt.className = "table-button";
            readIt.textContent = "Read It";
            readIt.setAttribute("onclick", `changeReadStatus( ${newRow.id})`); 
            newRow.insertCell().appendChild(readIt);
 
            let remove = document.createElement('button'); 
-           remove.className = "danger-button";
            remove.textContent = "Delete this book";
-           console.log(newRow.id);
+           remove.className = "table-button";
+
            remove.setAttribute("onclick", `deleteBook( ${newRow.id})`); 
            newRow.insertCell().appendChild(remove);
 
@@ -93,7 +101,6 @@ function openForm()
     {
     document.getElementById("bookentry").style.display = "none";
     }
-
 
 
 
@@ -136,20 +143,36 @@ function deleteSelection ()
 }
 
 
+Book.prototype.toggleRead = function()
+    {
+        if(this.beenRead == false)
+        {
+            return this.beenRead = true;
+        }
+        else if (this.beenRead == true)
+        {
+            return this.beenRead = false;
+        }
+        else
+        {
+            return "didnt do jack";
+        }
+    }
+
 
 function changeReadStatus (bookId)
-{
-myLibrary[bookId].markRead();
-clearDisplay();
-displayLibrary();
-}
+    {
+    myLibrary[bookId].toggleRead();
+    clearDisplay();
+    displayLibrary();
+    }
 
 function changeSelectionStatus ()
-{
-myLibrary[selectionId].markRead();
-clearDisplay();
-displayLibrary();
-}
+    {
+    myLibrary[selectionId].toggleRead();
+    clearDisplay();
+    displayLibrary();
+    }
 
 
 document.getElementById("books").addEventListener('click', function (e)
@@ -166,7 +189,7 @@ document.getElementById("books").addEventListener('click', function (e)
         let prevSelection = selectionId;
         selectionId = (e.target.parentElement.id);
         e.target.parentElement.className = "bookSelection";
-        document.getElementById(prevSelection).className = ""; // conflict between selections and button on books. 
+        document.getElementById(prevSelection).className = "notSelected"; // prompting error when selecting a button but functions correctly
     }
 
 });
