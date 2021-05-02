@@ -1,0 +1,166 @@
+html 
+{
+background: rgb(6, 68, 104);
+color: rgb(60, 60, 61);
+}
+
+
+h1
+{
+font-size: 40px;
+border-bottom: rgb(1, 1, 65);
+color: rgb(244, 245, 247);
+background-color: rgb(4, 4, 117);
+border-radius:  10px 10px 10px 0px;
+}
+
+button
+{
+color: rgb(1, 1, 44);
+border: rgb(25, 3, 104);
+border: solid;
+background-color: rgb(151, 158, 158);
+font-size: 20px;
+text-align: center;
+
+}
+
+button:hover
+{
+color: rgb(151, 158, 158);
+border: rgb(151, 158, 158);
+border: solid;
+background-color: rgb(25, 3, 104);
+font-size: 20px;
+text-align: center;
+}
+
+
+
+.table-button
+{
+    color: rgb(1, 1, 44);
+    border: rgb(25, 3, 104);
+    border: solid;
+    background-color: rgb(151, 158, 158);
+    font-size: 18px;
+    text-align: center;
+
+}
+
+.table-button:hover
+{
+    color: rgb(151, 158, 158);
+    border: rgb(151, 158, 158);
+    border: solid;
+    background-color: rgb(25, 3, 104);
+    font-size: 18px;
+    text-align: center;
+}
+
+.booksTable
+{
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 1.5em;
+    min-width: 400px;
+}
+
+
+.booksTable thead tr
+{
+background-color: rgb(4, 4, 117);
+color: white;
+text-align: left;
+font-weight: bold;
+}
+
+
+.booksTable td,
+.booksTable th
+{
+padding: 12px 15px;
+}
+
+
+.booksTable tbody tr
+{
+border-bottom: 1px solid rgb(150, 148, 148);
+background-color: rgb(207, 206, 206);
+}
+
+
+.booksTable tbody tr:last-of-type
+{
+border-bottom: 2px solid darkblue;
+}
+
+
+.booksTable tbody tr:hover
+{
+    font-weight: bold;
+    color: #16055f;
+}
+
+.bookSelection
+{
+    font-weight: bold;
+    color: #16055f;
+}
+
+.bookentry-popup
+{
+display: none;
+position: fixed;
+top: 40%;
+left: 50%;
+transform: translate(-30%, -50%);
+z-index: 2;
+}
+
+.formContainer
+{
+color: rgb(4, 4, 117);;
+font-weight: bold;
+background-color: rgb(245, 245, 245);
+border: rgb(0, 111, 139);
+border: solid;
+border-radius: 10px;
+border-width: 10px;
+padding: 10px;
+}
+
+.form-button
+{
+    color: rgb(1, 1, 44);
+    border: rgb(25, 3, 104);
+    border: solid;
+    background-color: rgb(248, 248, 248);
+    font-size: 20px;
+    text-align: center;
+}
+
+.form-button:hover
+{
+    color: rgb(245, 245, 247);
+    border: rgb(25, 3, 104);
+    border: solid;
+    background-color: rgb(1, 1, 44);
+    font-size: 20px;
+    text-align: center;
+}
+
+.formContainer input[type=text]
+ {
+    padding: 15px;
+    border: none;
+    background: #EEEEEE;
+  }
+
+  input:invalid {
+    border: 2px dashed red;
+  }
+  
+  input:valid {
+    border: 2px solid black;
+  }

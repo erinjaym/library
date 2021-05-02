@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> <link rel="stylesheet" href="style.css">
+<title>The fairytale Library</title>
+</head>
+<body>
+    <h1 id="title"> The Fairytale Library</h1>
+<main>
+    <table id="theTable" class="booksTable">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Pagecount</th>
+                <th>Read</th>
+                <th> </th> 
+                <th> </th>        
+            </tr>
+        </thead>
+        <tbody id="books">
+        </tbody>
+    </table>
+</main><br><br>
+
+<button id="addNew" onclick="openForm();">ADD BOOK</button>
+<button id="markRead" onclick="changeSelectionStatus()">READ</button>
+<button id="delete" onclick="deleteSelection()">DELETE SELECTION</button>
+<button id="clear" onclick="clearDisplay();">Clear</button>
+<button id="display" onclick="displayLibrary();">Display</button>
+
+
+    <div id="bookentry" class="bookentry-popup">
+        <form action="" class="formContainer">
+            <label for="author">Author Name:</label><br>
+            <input type="text" id="author" name="author" placeholder="Billy Bojangles" required><br>
+
+            <label for="booktitle">Title:</label><br>
+            <input type="text" id="booktitle" name="title" placeholder="The Bojangles Chronicles" required><br>
+
+            <label for="pagecount">Page count:</label><br>
+            <input type="text" id="pagecount" name="pagecount" placeholder="400" required><br>
+
+            <p>Have you read it?:</p>
+            <input type="radio" id="yep" name="read" value="yep">
+                <label for="yep" style="color: green">Yep</label>
+            <input type="radio" id="nope" name="read" value="nope">
+                <label for="nope" style="color: red">Nope</label><br><br>
+
+            <button type="button" class="form-button" onclick="checkFormValidity();">Submit</button>
+            <button type="button" class="form-button" onclick="closeForm()">Nevermind</button>
+        </form>
+    </div>
+
+</body>
+
+<script src="books.js"></script>
+</html>
