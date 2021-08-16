@@ -1,0 +1,22 @@
+{
+  "name": "library",
+  "version": "1.0.0",
+  "description": "Mock Library database app. ",
+  "main": "books.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/erinjaym/library.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/erinjaym/library/issues"
+  },
+  "homepage": "https://github.com/erinjaym/library#readme",
+  "dependencies": {
+    "firebase": "^8.9.1"
+  }
+}

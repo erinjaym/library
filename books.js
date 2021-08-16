@@ -11,10 +11,7 @@ class Book
     }
 
 }
-
-
-
-
+  
 let myLibrary = [] ;
 let sample = new Book ("EJM", "A Hero's Rise", 486, false);
 let selectionId = null;
@@ -22,7 +19,12 @@ console.log(sample);
 console.log(sample.info());
 addBookToLibrary(sample);
 
+// make a function that adds library to storage in a firebase back end. .. 
+function saveLibrary() {
+    // Add library to firebase database 
+   // return firebase.firestore().collection('messages').add({
 
+  }
 
 /* original book constructor now replaced with class at begining for practice per odin assignment
 function Book(auth, name, pages, read)
@@ -56,14 +58,12 @@ function Book(auth, name, pages, read)
 
 }  */
 
-
 function addBookToLibrary(book) 
 {
     let bookPlacement = myLibrary.length;
     myLibrary[bookPlacement] = book;
 
 }
-
 
 displayLibrary();
 function displayLibrary()
@@ -119,8 +119,6 @@ function openForm()
     document.getElementById("bookentry").style.display = "none";
     }
 
-
-
 function clearDisplay ()
 {
         while (document.getElementById("books").lastChild)
@@ -129,7 +127,6 @@ function clearDisplay ()
             }
 
 }
-
 
 function deleteBook (bookId) 
 {
@@ -158,7 +155,6 @@ function deleteSelection ()
     }
 
 }
-
 
 Book.prototype.toggleRead = function()
     {
@@ -191,7 +187,6 @@ function changeSelectionStatus ()
     displayLibrary();
     }
 
-
 document.getElementById("books").addEventListener('click', function (e)
 {
 
@@ -210,7 +205,6 @@ document.getElementById("books").addEventListener('click', function (e)
     }
 
 });
-
 
 function checkFormValidity (){
     let title = document.getElementById('booktitle');
